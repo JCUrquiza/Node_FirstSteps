@@ -1,3 +1,4 @@
+import { argv } from 'process';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
@@ -19,6 +20,12 @@ export const yarg = yargs( hideBin(process.argv) )
         type: 'boolean',
         default: false,
         describe: 'Show multiplication table'
+    })
+    .check((argv, options) => {
+
+        if ( argv.b < 1 ) throw 'Error: base must be greater than 0'
+
+        return true;
     })
     .parseAsync();
 
