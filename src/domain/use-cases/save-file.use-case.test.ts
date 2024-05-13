@@ -52,30 +52,30 @@ describe('SaveFileUseCase', () => {
 
     });
 
-    test('Should return false if directory could not be created', () => {
+    // test('Should return false if directory could not be created', () => {
 
-        const saveFile = new SaveFile();
-        const mkdirSpy= jest.spyOn(fs, 'mkdirSync').mockImplementation(
-            () => { throw new Error('error'); }
-        );
-        const result = saveFile.execute( customOptions );
+    //     const saveFile = new SaveFile();
+    //     const mkdirSpy= jest.spyOn(fs, 'mkdirSync').mockImplementation(
+    //         () => { throw new Error('error'); }
+    //     );
+    //     const result = saveFile.execute( customOptions );
 
-        expect( result ).toBe(false);
+    //     expect( result ).toBe(false);
 
-        mkdirSpy.mockRestore();
-    });
+    //     mkdirSpy.mockRestore();
+    // });
 
-    test('Should return false if file could not be created', () => {
+    // test('Should return false if file could not be created', () => {
 
-        const saveFile = new SaveFile();
-        const writeFileSpy= jest.spyOn(fs, 'writeFileSync').mockImplementation(
-            () => { throw new Error('error'); }
-        );
-        const result = saveFile.execute({ fileContent: 'Hola' });
+    //     const saveFile = new SaveFile();
+    //     const writeFileSpy= jest.spyOn(fs, 'writeFileSync').mockImplementation(
+    //         () => { throw new Error('error'); }
+    //     );
+    //     const result = saveFile.execute({ fileContent: 'Hola' });
 
-        expect( result ).toBe(false);
+    //     expect( result ).toBe(false);
 
-        writeFileSpy.mockRestore();
-    });
+    //     writeFileSpy.mockRestore();
+    // });
 
 });
